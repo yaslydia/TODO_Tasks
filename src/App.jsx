@@ -28,7 +28,15 @@ function App() {
     });
   }
 
-  function handleDeleteTask() {}
+  function handleDeleteTask(id) {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        /*filter(): if the function returns true, will keep the element, otherwise, will delete the element*/
+        tasks: prevState.tasks.filter((task) => task.id !== id),
+      };
+    });
+  }
 
   function handleSelectProject(id) {
     setProjectsState((prevState) => {
@@ -114,6 +122,7 @@ function App() {
         onStartAddProject={handleStartAddProject}
         projects={projectsState.projects}
         onSelectProject={handleSelectProject}
+        selectedProjectId={projectsState.selectedProjectId}
       />
       {content}
     </main>
