@@ -7,7 +7,7 @@ import SelectedProject from "./components/SelectedProject.jsx";
 
 function App() {
   const [projectsState, setProjectsState] = useState({
-    selectedProjectId: undefined,
+    selectedProjectId: undefined, // states: [undefined] means no new project&not select project; [null] means add new project; [id] stands for the actual project id which is selected
     projects: [],
     tasks: [],
   });
